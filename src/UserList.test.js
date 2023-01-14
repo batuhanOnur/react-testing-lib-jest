@@ -10,7 +10,8 @@ test('render the correct number of rows', () => {
         { name: 'sam', email: 'sam@sam.com'},
     ]
 
-    const { container } = render(<UserList users={users}/>) // html elements inside container
+    //const { container } = render(<UserList users={users}/>) // html elements inside container
+    render(<UserList users={users}/>)
 
     // * find all the rows in the table
     // screen.logTestingPlaygroundURL();
