@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import UserList from './UserList';
 
 
@@ -10,12 +10,16 @@ test('render the correct number of rows', () => {
         { name: 'sam', email: 'sam@sam.com'},
     ]
 
-    render(<UserList users={users}/>)
+    const { container } = render(<UserList users={users}/>) // html elements inside container
 
     // * find all the rows in the table
-    //screen.logTestingPlaygroundURL();
+    // screen.logTestingPlaygroundURL();
 
-    const rows= screen.getAllByRole('row')
+    // const rows = within(screen.getByTestId('users')).getAllByRole('row')
+
+    // eslint-disable-next-line
+    const rows = container.querySelectorAll('tbody tr')
+
 
     // * assertion
     expect(rows).toHaveLength(2);
